@@ -1,0 +1,4 @@
+/* เริ่มใช้ Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
