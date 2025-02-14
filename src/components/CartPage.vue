@@ -2,10 +2,9 @@
   <div class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Shopping Cart</h1>
 
-    <!-- แสดงรายการสินค้าจากตะกร้า -->
     <div v-if="cart.length > 0">
       <div v-for="(item, index) in cart" :key="index" class="flex justify-between py-2 border-b items-center">
-        <span>{{ item.name }} ({{ item.quantity }} เล่ม)</span> <!-- แสดงจำนวนที่เพิ่ม -->
+        <span>{{ item.name }} ({{ item.quantity }} เล่ม)</span>
         <div class="flex items-center gap-4">
           <span>{{ item.price }} THB</span>
           <button @click="confirmRemove(index, item.name)" class="bg-red-500 text-white px-2 py-1 rounded">
@@ -14,19 +13,16 @@
         </div>
       </div>
 
-      <!-- แสดงราคารวมทั้งหมดก่อนส่วนลด -->
       <div class="mt-4 flex justify-between">
         <span>Total Price (Before Discount):</span>
         <span>{{ calculateTotalPriceBeforeDiscount(cart) }} THB</span>
       </div>
 
-      <!-- แสดงส่วนลด -->
       <div class="mt-2 flex justify-between text-red-600">
         <span>Discount:</span>
         <span>-{{ calculateDiscount(cart) }} THB</span>
       </div>
 
-      <!-- แสดงราคารวมสุทธิ -->
       <div class="mt-2 flex justify-between font-bold">
         <span>Total Price (After Discount):</span>
         <span>{{ calculateTotalPrice(cart) }} THB</span>
