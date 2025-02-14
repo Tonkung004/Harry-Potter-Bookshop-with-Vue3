@@ -2,24 +2,19 @@
   <div class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Harry Potter Book Store</h1>
 
-    <!-- รายการหนังสือ -->
     <div class="grid grid-cols-3 gap-4">
       <div
         v-for="(book, index) in books"
         :key="index"
         class="p-4 border border-gray-200 rounded flex flex-col"
       >
-        <!-- รูปภาพหนังสือ -->
         <img :src="book.image" :alt="book.name" class="w-full h-48 object-cover mb-2 rounded">
 
         <h2 class="text-lg font-semibold">{{ book.name }}</h2>
 
-        <!-- ส่วนที่อยู่ขวา: ราคา + ปุ่มปรับจำนวน + ปุ่ม Add to Cart -->
         <div class="flex flex-col items-end mt-2">
-          <!-- ราคา -->
           <p class="text-sm text-gray-500">{{ book.price }} THB</p>
 
-          <!-- ปุ่มเพิ่มลดสินค้า -->
           <div class="flex items-center border border-gray-300 rounded mt-1">
             <button
               @click="decreaseTempQuantity(book)"
@@ -37,7 +32,6 @@
             </button>
           </div>
 
-          <!-- ปุ่มเพิ่มไปยังตะกร้า -->
           <button
             @click="addToCart(book)"
             class="mt-2 p-2 bg-blue-500 text-white rounded text-center"
